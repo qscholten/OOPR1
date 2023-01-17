@@ -1,7 +1,6 @@
-#ifndef LED_H
-#define LED_H
-
 #include <string>
+#include "Weerstand.h"
+#incldue "RockPi.h"
 
 using namespace std;
 #pragma once
@@ -13,15 +12,14 @@ class Led
   public:
     Led(int);
     ~Led();
-    void zetAan();
-    void zetUit();
-    string ledKleur()const;
-    int isLedAan()const;
-    int pinNummer() const;
-
+    virtual bool zetAan(string);
+    virtual void zetUit();
+    virtual int connectie();
+    virtual int ledStatus();
+    void veranderLichtsterkte(double);
+    double hoeveelheidLicht();
+    string deEigenaar();
   private:
-    string kleur;
-    int pinNr=-1;
-    int status=0;  
+    string eigenaar;
+    double lichtsterkte;
 };
-#endif

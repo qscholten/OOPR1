@@ -1,8 +1,3 @@
-#ifndef RockPiPin_H
-#define RockPiPin_H
-
-
-#pragma once
 #define INPUT 0
 
 class RockPiPin
@@ -24,5 +19,3 @@ private:
    int status;
 
 };
-
-#endif
