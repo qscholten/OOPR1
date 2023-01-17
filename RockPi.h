@@ -1,3 +1,8 @@
+#ifndef RockPi_H
+#define RockPi_H
+
+#pragma once
+
 #include "RockPiPin.h"
 
 #define AANTALPINNEN 4
@@ -16,3 +21,5 @@ class RockPi
     RockPiPin pinnen[AANTALPINNEN];
    
 };
+
+#endif

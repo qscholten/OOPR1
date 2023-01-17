@@ -1,6 +1,6 @@
 #include <string>
 #include "Weerstand.h"
-#incldue "RockPi.h"
+#include "RockPi.h"
 
 using namespace std;
 #pragma once
@@ -9,9 +9,10 @@ using namespace std;
 
 class Led
 {
+  protected:
+  string eigenaar;
   public:
-    Led(int);
-    ~Led();
+    Led();
     virtual bool zetAan(string);
     virtual void zetUit();
     virtual int connectie();
@@ -20,6 +21,5 @@ class Led
     double hoeveelheidLicht();
     string deEigenaar();
   private:
-    string eigenaar;
     double lichtsterkte;
 };

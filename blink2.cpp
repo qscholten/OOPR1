@@ -4,9 +4,9 @@
 using namespace std;
 
 #include "Led.h"
-#include "RockPi.h"
 #include "SingleLed.h"
-#include "Weerstand.h"
+#include "RockPi.h"
+#include "gpiofuncties.h"
 
 #define TIMELEDON 1000000
 #define TIMELEDOFF 500000
@@ -20,12 +20,14 @@ int main (void)
 RockPi miniC(20208294); //vul hier je eigen studienummer in.
 const Weerstand r1(330);
 string ledKleur="groen";
-string eigenaar= "Pietje Puk";
+string eigenaar= "Qing Scholten";
 SingleLed sl1(&miniC,134,&r1,ledKleur, eigenaar,0.9); //bij raspberry pi nr 18
 SingleLed ledje2(sl1);
 string testKleur="groen";
 sl1.zetAan(testKleur);
 sleep(1);
 ledje2.zetUit();
-  return 0 ;
+//pinMode(134,1);
+//digitalWrite (134,1);
+return 0 ;
 }
