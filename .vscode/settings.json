@@ -46,7 +46,8 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "memoryleakdetectornewmacros.h": "c",
-        "memoryleakwarningplugin.h": "c"
+        "memoryleakwarningplugin.h": "c",
+        "thread": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
