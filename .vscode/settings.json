@@ -44,7 +44,9 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "cinttypes": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "memoryleakdetectornewmacros.h": "c",
+        "memoryleakwarningplugin.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
