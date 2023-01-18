@@ -1,4 +1,5 @@
 #include "SingleLed.h"
+#include <string>
 
 SingleLed::SingleLed(RockPi *pi, int pinNummer, const Weerstand *weerstand, string kleur, string eigenaar, double lichtsterkte): Led(eigenaar, lichtsterkte)
 {
@@ -34,6 +35,9 @@ SingleLed::SingleLed(SingleLed &SL): Led(SL){
   this->pi = SL.pi;
 }
 
+SingleLed::~SingleLed() {
+}
+
 bool SingleLed::zetAan(string kleur) {
   if (this->kleur.compare(kleur) != 0) {
         return false;
@@ -48,8 +52,8 @@ void SingleLed::zetUit() {
   this->status = 0;
 }
 
-int SingleLed::connectie() {
-  return this->pinNummer;
+string SingleLed::connectie() const{
+  return to_string(this->pinNummer);
 }
 
 int SingleLed::ledStatus() {

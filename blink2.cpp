@@ -13,6 +13,10 @@ using namespace std;
 #define TIMELEDON 1000000
 #define TIMELEDOFF 500000
 
+void printConnecties(const Led& l) {
+   cout<<"Led verbonden op  de volgende poort(en): "<<l.connectie()<<endl;
+}
+
 int main (void)
 {
   cout<<"hoi opgave2"<<endl;
@@ -34,14 +38,14 @@ ledje2.zetUit();
 //digitalWrite (134,1);
 return 0 ;*/
 
-
-RockPi miniC(123456); //vul hier je eigen studienummer in.
+/*
+RockPi miniC(20208294); //vul hier je eigen studienummer in.
 const Weerstand r1(330);
 const Weerstand r2(330);
 const Weerstand r3(330);
 string ledKleur1="groen";
 string ledKleur2="rood";
-string eigenaar= "Pietje Puk";
+string eigenaar= "Qing Scholten";
 SingleLed* sl1=new SingleLed(&miniC,&r1,134, ledKleur1, eigenaar,0.9);//nr 18
 DualLed* dl1=new DualLed(&miniC,&r2,&r3,132,135, ledKleur1, ledKleur2,eigenaar,1.2);// 23,24
 
@@ -63,5 +67,30 @@ uit -> zetUit();
 
 delete sl1;
 delete dl1;
+return 0;*/
+cout << "!!!Hello World van de tijd!!!" << endl;
+RockPi miniC(123456); //vul hier je eigen studienummer in.
+const Weerstand r1(330);
+const Weerstand r2(330);
+const Weerstand r3(330);
+string ledKleur1="groen";
+string ledKleur2="rood";
+string eigenaar= "Pietje Puk";
+SingleLed sl1(&miniC,&r1,134, ledKleur1, eigenaar,0.9);//nr 18
+DualLed dl1(&miniC,&r2,&r3,132,135, ledKleur1, ledKleur2,eigenaar,1.2);
+printConnecties(sl1);
+printConnecties(dl1);
+for(int i=0;i<5;++i) {
+sl1.zetAan("Groen");
+sleep(1);
+sl1.zetUit();
+sleep(2);
+}
+dl1.zetAan("Groen");
+sleep(2);
+dl1.zetAan("Rood");
+sleep(2);
+dl1.zetUit();
+
 return 0;
 }

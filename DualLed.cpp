@@ -31,6 +31,10 @@ DualLed::DualLed(DualLed &DL): Led(DL){
   this->pi = DL.pi;
 }
 
+DualLed::~DualLed() {
+    
+}
+
 bool DualLed::zetAan(string kleur) {
   if (this->kleur1.compare(kleur) == 0) {
         pi->pinWaarde(pinNummer1,1);
@@ -51,12 +55,11 @@ void DualLed::zetUit() {
   this->status = 0;
 }
 
-int DualLed::connectie1() {
-  return this->pinNummer1;
-}
-
-int DualLed::connectie2() {
-    return this->pinNummer2;
+string DualLed::connectie() const
+{
+    string a = to_string(this->pinNummer1);
+    string b = to_string(this->pinNummer2);
+    return a + " " + b;
 }
 
 int DualLed::ledStatus() {

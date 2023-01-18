@@ -11,10 +11,10 @@ class DualLed: public Led
   public:
     DualLed(RockPi *pi, const Weerstand *weerstand1, const Weerstand *weerstand2, int pinNummer1, int pinNummer2, string kleur1, string kleur2, string eigenaar, double lichtsterkte);
     DualLed(DualLed&);
+    ~DualLed();
     bool zetAan(string);
     void zetUit();
-    int connectie1();
-    int connectie2();
+    string connectie() const;
     int ledStatus();
   private:
     string kleur1;

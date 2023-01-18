@@ -12,9 +12,10 @@ class SingleLed: public Led
     SingleLed(RockPi *pi, int pinNummer, const Weerstand *weerstand, string kleur, string eigenaar, double lichtsterkte);
     SingleLed(RockPi *pi, const Weerstand *weerstand, int pinNummer, string kleur, string eigenaar, double lichtsterkte);
     SingleLed(SingleLed&);
+    ~SingleLed();
     bool zetAan(string);
     void zetUit();
-    int connectie();
+    string connectie() const;
     int ledStatus();
   private:
     string kleur;

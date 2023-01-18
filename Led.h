@@ -13,10 +13,10 @@ class Led
   string eigenaar;
   public:
     Led(string, double);
-    virtual bool zetAan(string);
-    virtual void zetUit();
-    virtual int connectie();
-    virtual int ledStatus();
+    virtual bool zetAan(string) = 0;
+    virtual void zetUit() = 0;
+    virtual string connectie() const = 0;
+    virtual int ledStatus() = 0;
     void veranderLichtsterkte(double);
     double hoeveelheidLicht();
     string deEigenaar();
