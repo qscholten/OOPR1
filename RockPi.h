@@ -4,9 +4,10 @@
 #pragma once
 
 #include "RockPiPin.h"
+#include "ConnectionPlatform.h"
 
 #define AANTALPINNEN 4
-class RockPi
+class RockPi: public ConnectionPlatform
 {
   public:
     RockPi(int);

@@ -6,7 +6,7 @@
 
 
 int	main() {
-RockPi miniC(123456); //vul hier je eigen studienummer in.
+RockPi miniC(20208294); //vul hier je eigen studienummer in.
 LedLamp lampje;
 const Weerstand r1(330);
 const Weerstand r2(330);
@@ -15,7 +15,7 @@ const Weerstand r4(330);
 
 string ledKleur1="groen";
 string ledKleur2="rood";
-string eigenaar= "Pietje Puk";
+string eigenaar= "Qing Scholten";
 
 lampje.voegLedToe(new SingleLed(&miniC,&r1,134, ledKleur1, eigenaar,0.9));
 lampje.voegLedToe(new DualLed(&miniC,&r2,&r3,132,135, ledKleur1, ledKleur2,eigenaar,1.2));
