@@ -7,6 +7,8 @@ using namespace std;
 #include "SingleLed.h"
 #include "RockPi.h"
 #include "gpiofuncties.h"
+#include "Weerstand.h"
+#include "DualLed.h"
 
 #define TIMELEDON 1000000
 #define TIMELEDOFF 500000
@@ -17,6 +19,7 @@ int main (void)
  	
 //RockPi miniC(123456); //vul hier je eigen studienummer in.
 //RaspberryPi miniC(123456); //vul hier je eigen studienummer in.
+/*/
 RockPi miniC(20208294); //vul hier je eigen studienummer in.
 const Weerstand r1(330);
 string ledKleur="groen";
@@ -29,5 +32,36 @@ sleep(1);
 ledje2.zetUit();
 //pinMode(134,1);
 //digitalWrite (134,1);
-return 0 ;
+return 0 ;*/
+
+
+RockPi miniC(123456); //vul hier je eigen studienummer in.
+const Weerstand r1(330);
+const Weerstand r2(330);
+const Weerstand r3(330);
+string ledKleur1="groen";
+string ledKleur2="rood";
+string eigenaar= "Pietje Puk";
+SingleLed* sl1=new SingleLed(&miniC,&r1,134, ledKleur1, eigenaar,0.9);//nr 18
+DualLed* dl1=new DualLed(&miniC,&r2,&r3,132,135, ledKleur1, ledKleur2,eigenaar,1.2);// 23,24
+
+Led* l1=sl1;
+Led* l2=dl1;
+
+l1->zetAan("groen");
+sleep(1);
+l2->zetAan("groen");
+sleep(1);
+l2->zetAan("rood");
+sleep(1);
+
+Led* uit=sl1;
+uit->zetUit();
+sleep(1);
+uit=dl1;
+uit -> zetUit();
+
+delete sl1;
+delete dl1;
+return 0;
 }

@@ -12,7 +12,7 @@ class Led
   protected:
   string eigenaar;
   public:
-    Led(string, int);
+    Led(string, double);
     virtual bool zetAan(string);
     virtual void zetUit();
     virtual int connectie();

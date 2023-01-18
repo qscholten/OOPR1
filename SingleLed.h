@@ -9,9 +9,9 @@ using namespace std;
 class SingleLed: public Led
 {
   public:
-    SingleLed(RockPi,int, Weerstand,string, string,double);
+    SingleLed(RockPi *pi, int pinNummer, const Weerstand *weerstand, string kleur, string eigenaar, double lichtsterkte);
+    SingleLed(RockPi *pi, const Weerstand *weerstand, int pinNummer, string kleur, string eigenaar, double lichtsterkte);
     SingleLed(SingleLed&);
-    ~SingleLed();
     bool zetAan(string);
     void zetUit();
     int connectie();
@@ -21,7 +21,6 @@ class SingleLed: public Led
     int status;
     int pinNummer;
     int aangesloten;
-    Rockpi *pi;
-    Weerstand *weerstand;
-    Led *led;
+    RockPi *pi;
+    const Weerstand *weerstand;
 };

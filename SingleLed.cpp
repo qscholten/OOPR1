@@ -12,8 +12,21 @@ SingleLed::SingleLed(RockPi *pi, int pinNummer, const Weerstand *weerstand, stri
   pi->zetPinMode(pinNummer,1);
 }
 
-SingleLed::SingleLed(SingleLed SL): Led(SL){
-  this->weerstand = SL.weerstand;
+SingleLed::SingleLed(RockPi *pi, const Weerstand *weerstand, int pinNummer, string kleur, string eigenaar, double lichtsterkte): Led(eigenaar, lichtsterkte)
+{
+  this->pi = pi;
+  this->pinNummer = pinNummer;
+  this->weerstand = weerstand;
+  this->kleur = kleur;
+  this->status = 0;
+  this->aangesloten = 1;
+  pi->koppelAansluiting(pinNummer);
+  pi->zetPinMode(pinNummer,1);
+}
+
+SingleLed::SingleLed(SingleLed &SL): Led(SL){
+  const Weerstand r1(*SL.weerstand);
+  this->weerstand = &r1;
   this->kleur = SL.kleur;
   this->status = SL.status;
   this->aangesloten = SL.aangesloten;
