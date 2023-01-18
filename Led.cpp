@@ -12,9 +12,9 @@ string Led::deEigenaar() {
     return this->eigenaar;
 }
 
-Led::Led() {
-    this->lichtsterkte = 0;
-    this->eigenaar = "Anoniem";
+Led::Led(string eigenaar, int lichtsterkte) {
+    this->lichtsterkte = lichtsterkte;
+    this->eigenaar = eigenaar;
 }
 
 bool Led::zetAan(string) {
