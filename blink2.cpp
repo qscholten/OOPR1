@@ -3,6 +3,9 @@
 #include "Weerstand.h"
 #include "RockPi.h"
 #include "LedLamp.h"
+#include "SingleLed.h"
+#include "DualLed.h"
+#include <unistd.h>
 
 
 int	main() {

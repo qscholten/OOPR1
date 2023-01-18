@@ -10,10 +10,10 @@ using namespace std;
 class LedLamp
 {
   public:
-    bool turnOn(string);
-    void turnOff();
-    string connection() const;
-    void addLed(Led*);
+    bool zetAan(string);
+    void zetUit();
+    string connectie() const;
+    void voegLedToe(Led*);
     bool ledStatus();
   private:
     vector <Led*> leds;
